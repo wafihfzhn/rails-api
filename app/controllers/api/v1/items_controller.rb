@@ -4,7 +4,13 @@ class Api::V1::ItemsController < ApplicationController
   def index
     items = Item.all
 
-    render json: {data: items, status: :ok}
+    render json: {data: items, status: :success}
+  end
+
+  def show
+    item = Item.find(params[:id])
+
+    render json: {data: item, status: :success}
   end
 
   def create
